@@ -5,3 +5,10 @@
 # React Router
 /.react-router/
 /build/
+
+
+# React 
+Library/
+Temp/
+Obj/
+Build/
