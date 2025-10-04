@@ -1,3 +1,9 @@
+# package
+
+`npm install @elevenlabs/elevenlabs-js`
+`npm install @google/genai`
+`npm i react-unity-webgl`
+
 # Welcome to React Router!
 
 A modern, production-ready template for building full-stack React applications using React Router.
