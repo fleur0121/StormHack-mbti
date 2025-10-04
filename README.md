@@ -2,15 +2,15 @@
 
 `npm install @elevenlabs/elevenlabs-js`
 
-# Elevenlabs
+Elevenlabs
 
 `npm install @google/genai`
 
-# Gemini
+Gemini
 
 `npm i react-unity-webgl`
 
-# React <-> Unity
+React <-> Unity
 
 # Welcome to React Router!
 
