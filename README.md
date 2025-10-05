@@ -1,5 +1,7 @@
 # package
 
+`npm install`　for install package
+
 `npm install @elevenlabs/elevenlabs-js`
 
 Elevenlabs
@@ -13,6 +15,20 @@ Gemini
 React <-> Unity
 
 `npm install react-router-dom`
+
+react router
+
+`npm i -D ts-node typescript`
+
+ts
+
+`npm i express cors`
+
+server
+
+`npm install @vitejs/plugin-react`
+
+`npm i -g vercel`
 
 # Welcome to React Router!
 
