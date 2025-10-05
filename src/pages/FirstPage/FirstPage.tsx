@@ -1,31 +1,33 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function FirstPage() {
+  const [input, setInput] = useState("");
+  const [ans, setAns] = useState("");
 
-  const [prompt, setPrompt] = useState('');
-  const [answer, setAnswer] = useState('');
-
-  const ask = async () => {
-    const res = await fetch('/api/gemini', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt }),
-    });
-    const data = await res.json();
-    setAnswer(data.text ?? '(no text)');
+  const callGemini = async () => {
+    console.log("[UI] click, prompt=", input);
+    try {
+      const res = await fetch("http://localhost:3000/api/gemini", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ prompt: input || "hello" }),
+      });
+      console.log("[UI] status", res.status);
+      const data = await res.json().catch(() => ({}));
+      console.log("[UI] body", data);
+      setAns(data.text ?? `HTTP ${res.status}`);
+    } catch (e: any) {
+      console.error("[UI] fetch error", e);
+      setAns("Error: " + e.message);
+    }
   };
 
   return (
-    <main style={{ padding: 24 }}>
-      <h1>Gemini Chat (Vite + Vercel)</h1>
-      <textarea value={prompt} onChange={e => setPrompt(e.target.value)} rows={4} style={{ width: '100%' }} />
-      <br />
-      <button onClick={ask}>Send</button>
-      <pre>{answer}</pre>
-    </main>
+    <div style={{ padding: 20 }}>
+      <h1>Ask Gemini</h1>
+      <input value={input} onChange={(e) => setInput(e.target.value)} />
+      <button type="button" onClick={callGemini}>送信</button>
+      <pre>{ans}</pre>
+    </div>
   );
 }
-
-
-
-
